@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DestroyDataSaveHistoryTable
 
 将删除的数据保存到历史表
@@ -38,4 +39,3 @@ And then execute:
     ## 在模型里面添加如下代码:
     ## 设置条件 订单name等于kaka的不会记录到历史表
     history_table_name("history_table_name")
-
