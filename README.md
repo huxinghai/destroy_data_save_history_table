@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DestroyDataSaveHistoryTable
 
 将删除的数据保存到历史表
