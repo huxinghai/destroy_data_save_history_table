@@ -1,0 +1,8 @@
+test:
+  sessions:
+    default:
+      database: destroy_data_save_history_table
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
