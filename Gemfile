@@ -7,7 +7,7 @@ gemspec
 gem "rails"
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec'
   gem 'sqlite3'
   gem 'mongoid'
 end

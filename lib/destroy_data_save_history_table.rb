@@ -1,1 +1,3 @@
 require "destroy_data_save_history_table/version"
+require "destroy_data_save_history_table/history_model"
+require "destroy_data_save_history_table/destroy_history"
