@@ -27,7 +27,6 @@ And then execute:
 
 过滤条件:    
     
-    ## 在模型里面添加如下代码:
     ## 设置条件 订单name等于kaka的不会记录到历史表
     has_history_destroy_condition do | order |
         order.name != "kaka"
@@ -35,6 +34,13 @@ And then execute:
 
 设置历史表名: 
 
-    ## 在模型里面添加如下代码:
     ## 设置条件 订单name等于kaka的不会记录到历史表
     history_table_name("history_table_name")
+
+设置历史数据名:
+
+    history_database_name("history_database_name")
+
+获取历史数据模型:
+    
+    Order.__history_model

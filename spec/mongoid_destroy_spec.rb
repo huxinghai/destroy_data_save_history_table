@@ -80,6 +80,20 @@ describe "destroy data save to history_table" do
         order_detail.__histories.collection.name.should eq(order_detail_table_name)
     end
 
+    it 'setting save history database name' do 
+        Order.collection.database.name.should eq("destroy_data_save_history_table")
+        database_name = :test_database_name
+
+        order, order_detail = create_order
+        Order.class_eval do
+            history_database_name(database_name)
+        end
+
+        order.destroy
+        order.__histories.collection.database.name.should eq(database_name)
+        Order.__history_model.collection.database.name.should eq(database_name)
+    end
+
     it "filter condition save history" do 
         Order.class_eval do 
             has_history_destroy_condition do | _order |
