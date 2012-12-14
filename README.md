@@ -6,7 +6,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'destroy_data_save_history_table',github => "huxinghai1988/destroy_data_save_history_table"
+    gem 'destroy_data_save_history_table', :github => "huxinghai1988/destroy_data_save_history_table"
 
 And then execute:
 
