@@ -4,8 +4,8 @@ require File.expand_path('../lib/destroy_data_save_history_table/version', __FIL
 Gem::Specification.new do |gem|
   gem.authors       = ["kaka"]
   gem.email         = ["huxinghai1988@gmail.com"]
-  gem.description   = %q{mongoid 删除的数据保存在历史表}
-  gem.summary       = %q{mongoid 删除的数据保存在历史表}
+  gem.description   = %q{mongoid delete data to history table}
+  gem.summary       = %q{mongoid delete data to history table}
   gem.homepage      = "https://github.com/huxinghai1988/destroy_data_save_history_table"
 
   gem.files         = `git ls-files`.split($\)
