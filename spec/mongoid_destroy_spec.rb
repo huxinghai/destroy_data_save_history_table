@@ -112,4 +112,8 @@ describe "destroy data save to history_table" do
         order.__histories.should be_nil
         order_detail.__histories.should be_nil
     end
+
+    it "query history data" do         
+        Order.__history_model.include?(Mongoid::Document).should be_true
+    end
 end

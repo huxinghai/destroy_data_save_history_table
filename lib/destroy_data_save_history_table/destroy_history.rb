@@ -70,7 +70,8 @@ module History
             if super *args  
                 if filter_condition
                     model = __model.__history_model.new(self.attributes)
-                    model.id = self.attributes["_id"] if self.attributes.key?("_id")
+                    self.attributes.each{| k,v | model.send("#{k}=", v) unless k == "_id" }
+                    model.id = self.attributes["_id"]
                     model.save
                 end
                 true
