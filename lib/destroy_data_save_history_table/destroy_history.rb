@@ -3,9 +3,11 @@ module History
     module Data
         extend ActiveSupport::Concern
 
-        # included do | klass |
-        #     klass.
-        # end
+        included do | klass |
+            klass.class_eval do 
+                after_destroy :trace_destroy
+            end
+        end
 
         module ClassMethods
             def has_history_destroy_condition(&block)  
@@ -42,7 +44,9 @@ module History
                 @__histories
             end
 
+
             private
+
             def get_history_table_name
                 history_table_name || "history_#{self.collection_name}"
             end
@@ -66,21 +70,17 @@ module History
             __model.__history_model.find(self.id) rescue nil
         end
 
-        def destroy(*args)
-            if super *args  
-                if filter_condition
-                    model = __model.__history_model.new(self.attributes)
-                    self.attributes.each{| k,v | model.send("#{k}=", v) unless k == "_id" }
-                    model.id = self.attributes["_id"]
-                    model.save
-                end
-                true
-            else
-                false
-            end            
-        end
 
         private 
+        def trace_destroy
+            if filter_condition
+                model = __model.__history_model.new(self.attributes)
+                self.attributes.each{| k,v | model.send("#{k}=", v) unless k == "_id" }
+                model.id = self.attributes["_id"]
+                model.save
+            end
+        end
+
         def filter_condition
             __model.get_history_condition.nil? ? true : __model.get_history_condition.call(self)
         end

@@ -16,6 +16,12 @@ class Order
     def self.have?(id)
         find(id) rescue nil
     end
+
+    after_destroy :notice_msg
+
+    def notice_msg
+        puts "success order ..."
+    end
 end
 
 
